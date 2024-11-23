@@ -1,0 +1,16 @@
+﻿{
+  "name": "One  Minute",
+  "short_name": "One Minute",
+  "description": "Get inspired daily with random one minute of wisdom!",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0077cc",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

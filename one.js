@@ -1,5 +1,16 @@
 ﻿// Load and manage the stories
 let stories = []; // Global variable to hold all stories
+// Ensure the page refreshes when the PWA is launched
+
+/*
+if (window.matchMedia('(display-mode: standalone)').matches) {
+	window.addEventListener('pageshow', (event) => {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	});
+}
+*/
 
 // Fetch the stories from the JSON file
 fetch('stories.json')
@@ -8,6 +19,12 @@ fetch('stories.json')
     stories = data; // Save stories to the global variable
     displayStory(getTodayStory()); // Display today's story on load
   });
+
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    window.addEventListener('DOMContentLoaded', () => {
+        getTodayStory(); // Replace with your story-fetching logic
+    });
+}
 
 // Function to get today's story based on the date
 function getTodayStory() {

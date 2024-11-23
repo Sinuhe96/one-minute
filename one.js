@@ -22,7 +22,7 @@ fetch('stories.json')
 
 if (window.matchMedia('(display-mode: standalone)').matches) {
     window.addEventListener('DOMContentLoaded', () => {
-        getTodayStory(); // Replace with your story-fetching logic
+		displayStory(getTodayStory()); // Replace with your story-fetching logic
     });
 }
 

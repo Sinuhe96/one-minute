@@ -13,6 +13,18 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 */
 
 // Fetch the stories from the JSON file
+function getDayOfYear(date = new Date()) {
+  // Start of the year for the given date
+  const startOfYear = new Date(date.getFullYear(), 0, 0);
+  
+  // Calculate the difference in milliseconds and convert to days
+  const diff = date - startOfYear;
+  const oneDay = 1000 * 60 * 60 * 24;
+  
+  // Return the day of the year
+  return Math.floor(diff / oneDay);
+}
+
 fetch('stories.json')
   .then(response => response.json())
   .then(data => {
@@ -28,7 +40,7 @@ if (window.matchMedia('(display-mode: standalone)').matches) {
 
 // Function to get today's story based on the date
 function getTodayStory() {
-  const today = new Date().getDay();
+  const today = getDayOfYear();
   return stories[today % stories.length];
 }
 
